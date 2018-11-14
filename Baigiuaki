@@ -1,0 +1,278 @@
+package gk;
+
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Scanner;
+import java.util.Vector;
+
+class Student implements Comparable<Student> {
+	private String fullName;
+	private String firstName;
+	private String lastName;
+	private int age;
+	private String address;
+	private double math;
+	private double average;
+
+	public Student() {
+		this.fullName = new String("");
+		this.age = 0;
+		this.address = new String("");
+		this.math = 0;
+		this.average = 0;
+	}
+
+	public Student(String firstName, String lastName, int age, String address, double math, double average) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.fullName = this.firstName + " " + this.lastName;
+		this.age = age;
+		this.address = address;
+		this.math = math;
+		this.average = average;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public double getMath() {
+		return math;
+	}
+
+	public void setMath(double math) {
+		this.math = math;
+	}
+
+	public double getAverage() {
+		return average;
+	}
+
+	public void setAverage(double average) {
+		this.average = average;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	@Override
+	public int compareTo(Student st) {
+		if (this.getAverage() > st.getAverage()) {
+			return 1;
+		} else if (this.getAverage() == st.getAverage()) {
+			return 0;
+		}
+		return -1;
+	}
+
+}
+
+public class QLSV {
+ 
+	Scanner keyb = new Scanner(System.in);
+	Vector<Student> vector = new Vector<>();
+
+	public QLSV() {
+		while (true) {
+			System.out.println("*- CHUONG TRINH QUAN LY SINH VIEN -*");
+			System.out.println("1. Nhap gia tri danh sach SV");
+			System.out.println("2. Sap xep SV theo chieu tang dan cua DTB");
+			System.out.println("3. Tim doi tuong SV co diem toan lon nhat");
+			System.out.println("4. Hien thi tat ca SV co tuoi lon hon 23");
+			System.out.println("5. Tim tat ca sinh vien co ho Huynh");
+			System.out.println("6. Hien thi danh sach SV co dia chi o Da Nang");
+			System.out.println("7. Thoat");
+
+			int option_input = Integer.parseInt(keyb.nextLine());
+
+			switch (option_input) {
+			case 1:
+				this.addStudent();
+				break;
+			case 2:
+				this.sortAverage(vector);
+				break;
+			case 3:
+				this.searchMath();
+				break;
+			case 4:
+				this.ageHigher23(vector);
+				break;
+			case 5:
+				studentFirstNameHuynh(vector);
+				break;
+			case 6:
+				this.studentAddressDaNang(vector);
+				break;
+			case 7:
+				System.out.println("Ket thuc chuong trinh");
+				return;
+			}
+		}
+	}
+
+	public void addStudent() {
+		System.out.println("*-- Nhap gia trinh cua sinh vien --*");
+		System.out.println("So luong sinh vien ban muon nhap vao: ");
+		int studentQuantity = Integer.parseInt(keyb.nextLine());
+		int index = 0;
+		for (int i = 0; i < studentQuantity; i++) {
+			System.out.print("Nhap vao HO SV thu " + (i + 1) + " : ");
+			String firstName = keyb.nextLine();
+			System.out.print("Nhap vao TEN SV thu " + (i + 1) + " : ");
+			String lastName = keyb.nextLine();
+			System.out.print("Nhap vao tuoi SV thu " + (i + 1) + " : ");
+			int age = Integer.parseInt(keyb.nextLine());
+			System.out.print("Nhap vao dia chi cua SV thu " + (i + 1) + " : ");
+			String address = keyb.nextLine();
+			System.out.print("Nhap vao DTB(AVERAGE) cua SV thu " + (i + 1) + " : ");
+			double average = Double.parseDouble(keyb.nextLine());
+			System.out.print("Nhap vao diem toan cua SV thu " + (i + 1) + " : ");
+			double math = Double.parseDouble(keyb.nextLine());
+			System.out.println("\n -------------- \n");
+			Student st = new Student(firstName, lastName, age, address, math, average);
+			vector.add(st);
+		}
+
+	}
+	
+	public Student highestMath(Vector<Student> vector) {
+		double maxMath = 0.0;
+		for (Student student : vector) {
+			if (student.getMath() >= maxMath) {
+				maxMath = student.getMath();
+			}
+		}
+		for (Student student : vector) {
+			if (student.getMath() == maxMath) {
+				return student;
+			}
+		}
+		return null;
+	}
+
+	public void viewStudent(Student st) {
+		System.out.println("Ten SV: " + st.getFullName());
+		System.out.println("Tuoi: " + st.getAge());
+		System.out.println("Dia chi: " + st.getAddress());
+		System.out.println("Diem Toan: " + st.getMath());
+		System.out.println("AVG: " + st.getAverage());
+		System.out.println("_____________________________");
+	}
+
+	public void sortAverage(Vector<Student> vector) {
+		Collections.sort(vector);
+		for (Student student : vector) {
+			viewStudent(student);
+		}
+	}
+
+	public void searchMath() {
+		Student maxMathStudent = highestMath(vector);
+		if (maxMathStudent != null) {
+			viewStudent(maxMathStudent);
+		}else {
+			System.out.println("Chua co sinh vien de tim kiem!");
+		}
+
+	}
+
+	public void ageHigher23(Vector<Student> vector) {
+		System.out.println("Sinh vien co tuoi lon hon 23____");
+		int count = 0;
+		for (Student student : vector) {
+			
+			if (student.getAge() > 23) {
+				viewStudent(student);
+				count = count + 1;
+			}
+		}
+		if (count == 0) {
+			System.out.println("Khong tim thay sinh vien co tuoi lon hon 23______\n");
+		}
+	}
+
+	public void studentAddressDaNang(Vector<Student> vector) {
+		System.out.println("Danh sach sinh vien co dia chi o Da Nang_____");
+		int count = 0;
+		for (Student student : vector) {
+			Student s = equalsDaNang(student);
+			if (s != null) {
+				viewStudent(s);
+				count = count + 1;
+			}
+		}
+		if (count == 0) {
+			System.out.println("Khong tim thay sinh vien co dia chi o Da Nang_____\n");
+		}
+	}
+
+	public void studentFirstNameHuynh(Vector<Student> vector) {
+		System.out.println("Danh sach sinh vien co ho Huynh_______");
+		int count = 0;
+		for (Student student : vector) {
+			Student s = firstNameEqualsHuynh(student);
+			if (s != null) {
+				viewStudent(s);
+				count = count + 1;
+			}
+		}
+		if (count == 0) {
+			System.out.println("Khong tim thay sinh vien co ho Huynh_______\n");
+		}
+	}
+
+	public Student equalsDaNang(Student st) {
+		if ("Da Nang".equalsIgnoreCase(st.getAddress())) {
+			return st;
+		}
+		return null;
+	}
+
+	public Student firstNameEqualsHuynh(Student st) {
+		if (st.getFullName().startsWith("Huynh")) {
+			return st;
+		}
+		return null;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new QLSV();
+
+	}
+
+}
