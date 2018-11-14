@@ -1,0 +1,75 @@
+*- CHUONG TRINH QUAN LY SINH VIEN -*
+1. Nhap gia tri danh sach SV
+2. Sap xep SV theo chieu tang dan cua DTB
+3. Tim doi tuong SV co diem toan lon nhat
+4. Hien thi tat ca SV co tuoi lon hon 23
+5. Tim tat ca sinh vien co ho Huynh
+6. Hien thi danh sach SV co dia chi o Da Nang
+7. Thoat
+1
+*-- Nhap gia trinh cua sinh vien --*
+So luong sinh vien ban muon nhap vao: 
+2
+Nhap vao HO SV thu 1 : Nguyễn 
+Nhap vao TEN SV thu 1 : Thị Thu
+Nhap vao tuoi SV thu 1 : 24
+Nhap vao dia chi cua SV thu 1 : Da Nang
+Nhap vao DTB(AVERAGE) cua SV thu 1 : 5.6
+Nhap vao diem toan cua SV thu 1 : 4
+
+ -------------- 
+
+Nhap vao HO SV thu 2 : Trần
+Nhap vao TEN SV thu 2 : Khanh 
+Nhap vao tuoi SV thu 2 : 12
+Nhap vao dia chi cua SV thu 2 : Quang tri
+Nhap vao DTB(AVERAGE) cua SV thu 2 : 8.3
+Nhap vao diem toan cua SV thu 2 : 6
+
+ -------------- 
+
+*- CHUONG TRINH QUAN LY SINH VIEN -*
+1. Nhap gia tri danh sach SV
+2. Sap xep SV theo chieu tang dan cua DTB
+3. Tim doi tuong SV co diem toan lon nhat
+4. Hien thi tat ca SV co tuoi lon hon 23
+5. Tim tat ca sinh vien co ho Huynh
+6. Hien thi danh sach SV co dia chi o Da Nang
+7. Thoat
+2
+Ten SV: Nguy?n  Th? Thu
+Tuoi: 24
+Dia chi: Da Nang
+Diem Toan: 4.0
+AVG: 5.6
+_____________________________
+Ten SV: Tr?n Khanh 
+Tuoi: 12
+Dia chi: Quang tri
+Diem Toan: 6.0
+AVG: 8.3
+_____________________________
+*- CHUONG TRINH QUAN LY SINH VIEN -*
+1. Nhap gia tri danh sach SV
+2. Sap xep SV theo chieu tang dan cua DTB
+3. Tim doi tuong SV co diem toan lon nhat
+4. Hien thi tat ca SV co tuoi lon hon 23
+5. Tim tat ca sinh vien co ho Huynh
+6. Hien thi danh sach SV co dia chi o Da Nang
+7. Thoat
+4
+Sinh vien co tuoi lon hon 23____
+Ten SV: Nguy?n  Th? Thu
+Tuoi: 24
+Dia chi: Da Nang
+Diem Toan: 4.0
+AVG: 5.6
+_____________________________
+*- CHUONG TRINH QUAN LY SINH VIEN -*
+1. Nhap gia tri danh sach SV
+2. Sap xep SV theo chieu tang dan cua DTB
+3. Tim doi tuong SV co diem toan lon nhat
+4. Hien thi tat ca SV co tuoi lon hon 23
+5. Tim tat ca sinh vien co ho Huynh
+6. Hien thi danh sach SV co dia chi o Da Nang
+7. Thoat
